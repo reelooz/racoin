@@ -14,7 +14,7 @@ class ParseyyToken implements ArrayAccess
             if ($m instanceof ParseyyToken) {
                 $this->metadata = $m->metadata;
             } elseif (is_array($m)) {
-                $this->metadata = $m;
+                $this->metadata = $m;  
             }
         }
     }

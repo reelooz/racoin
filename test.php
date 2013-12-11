@@ -6,4 +6,4 @@
  * and open the template in the editor.
  */
 echo "Master ! Gratin carotte
-coucou deathpote thomashjkhjk";
+coucou deathpote thomashjkhjk";  

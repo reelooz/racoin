@@ -1,6 +1,5 @@
 <?php
 namespace racoin\Base;
-echo "dfgd";
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class App {
@@ -10,7 +9,7 @@ class App {
         $capsule->addConnection([
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'tmap',
+            'database'  => 'bddracoin',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8',

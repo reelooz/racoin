@@ -1,6 +1,10 @@
 <?php
 require_once 'vendor/autoload.php';
 use \racoin\Base\App;
+use racoin\Classe\Annonce;
+use racoin\Classe\Utilisateur;
+use racoin\Classe\Photo;
+use racoin\Classe\Categorie;
 
 App::EloConfig();
 
@@ -21,7 +25,9 @@ $app->get('/', function () {
     $Smarty->display('tpl/footer.tpl');
 });
 
-
+$app->run();
+$resAnnonce = Annonce::all();
+var_dump($resAnnonce->toArray())
 /*$app->get('/annonce/affiche', function() use ($app) {
 
     $c = new \racoin\AnnonceController();
@@ -69,6 +75,4 @@ $app->get('/admin/supcat', array(new \racoin\RacoinAdmin, "takeCare"), function(
     $c->callAction('supcat', $app->request->get());
 }
 );*/
-$app->run();
-$resAnnonce = Annonce::all();
-var_dump($resAnnonce->toArray());
+;

@@ -12,11 +12,11 @@ class Annonce extends Illuminate\Database\Eloquent\Model {
     protected $primaryKey = 'idAnnonce';
     public $timestamps=false;
 
-    public function tva() {
+    /*public function tva() {
         return $this->belongsTo( 'TVA', 'id_tva' ) ;
     }
     
     public function marque() {
         return $this->belongsTo( 'Marque', 'id' ) ;
-    }
+    }*/
 }

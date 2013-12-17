@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'nbproject\\' => array($baseDir . '/'),
+    'racoin' => array($baseDir . '/php'),
     'Slim' => array($vendorDir . '/slim/slim'),
     'Illuminate\\Support' => array($vendorDir . '/illuminate/support'),
     'Illuminate\\Events' => array($vendorDir . '/illuminate/events'),

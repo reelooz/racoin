@@ -1,7 +1,6 @@
 <?php
 require 'vendor/autoload.php' ;
-require 'php/modele/Article.php';
-require 'php/Base/App.php';
+use \racoin\Base\App;
 use Illuminate\Database\Capsule\Manager as Capsule;
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -9,7 +8,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
  * and open the template in the editor.
  */
 echo "Master ! Gratin carotte
-coucou deathpote thomashjkhjk";  
+coucou deathpote thomashjkhjk coucouthjkjhesttest";  
 App::EloConfig();
-$resAnnonce = Annonce::all();
-var_dump($resAnnonce->toArray());
+
+/*$resAnnonce = Annonce::all();
+var_dump($resAnnonce->toArray());*/

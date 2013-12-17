@@ -1,18 +1,12 @@
 <?php
-
 require_once 'vendor/autoload.php';
+use \racoin\Base\App;
 
-App::EloConfigure();
+App::EloConfig();
 
-/*function takeCare() {
-
-    echo "ATTENTION : mode Administration / ETES VOUS AUTORISE ??? <br>";
-}*/
-
+$Smarty = new Smarty();
 $app = new Slim\Slim;
 
-// Instancier notre objet smarty
-$Smarty = new Smarty();
 // Fixer les chemins de template (optionnel)
 $Smarty->template_dir = '../tpl';
 
@@ -20,6 +14,7 @@ $Smarty->template_dir = '../tpl';
 
 $app->get('/', function () {
     echo "affichage de l'index";
+    $Smarty = new Smarty();
     $Smarty->display('tpl/header.tpl');
     $Smarty->display('tpl/sideBar.tpl');
     $Smarty->display('tpl/accueil.tpl');

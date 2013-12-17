@@ -8,6 +8,8 @@ use racoin\Classe\Categorie;
 
 App::EloConfig();
 
+
+
 $Smarty = new Smarty();
 $app = new Slim\Slim;
 

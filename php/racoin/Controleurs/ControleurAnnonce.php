@@ -1,50 +1,53 @@
 <?php
-/*********************************************************************
+
+namespace racoin\Controleurs;
+use \racoin\Classe\Annonce;
+use \racoin\Classe\Categorie;
+use \racoin\Classe\Photo;
+use \racoin\Classe\Utilisateur;
+
+/* * *******************************************************************
  * A faire
  * 
  */
-class ControllerAnnonce {
-      
-    static $tab = array(
-                    "affiche"=>"afficheAnnonce", 
-                    "contact"=>"afficheContact",
-                    "ajout"=>"afficheAjout"
-                  );
-                    
-      
-    public function afficheAnnonce($id){
-        return "afficheAnnonce(".$id.")";
+
+class ControleurAnnonce{
+
+    public function afficheAnnonce($id) {
+        return "afficheAnnonce(" . $id . ")";
     }
-      
-    public function afficheContact($id){
-        return "afficheContact(".$id.")";
+
+    public function afficheContact($id) {
+        return "afficheContact(" . $id . ")";
     }
-      
-    public function afficheAjout(){
+
+    public function afficheAjout() {
         return "afficheAjout()";
     }
-      
-    public function callAction($nom, $array){
-        $retour = "La fonction demandee n'existe pas";
-          
-        if(array_key_exists($nom, static::$tab)){
-            $methode = static::$tab[$nom]."(";
-              
-            $i = 0;
-            foreach($array as $v){
-                if($i==0){
-                    $methode.=$v;
-                }else{
-                    $methode.=",".$v;
-                }
-                $i++;
-            }
-              
-            $methode.=")";
-            $retour = $methode;
+    
+    public function displayAllAnnonce($s) {
+        $s->display('tpl/header.tpl');
+        $s->display('tpl/sideBar.tpl');
+        $annonces = array();
+        $resAnnonce = Annonce::with('categorie','utilisateur')->get();
+        foreach ($resAnnonce as $res){
+            $tab=array();
+            $tab['id']=$res->idannonce;
+            $tab['titre']=$res->titreannonce;
+            $tab['descriptif']=$res->descriptifannonce;
+            $tab['prix']=$res->prixannonce;
+            $tab['post']=$res->codepostannonce;
+            $tab['ville']=$res->villeannonce;
+            $tab['idUtil']=$res->idutil;
+            $tab['idCateg']=$res->idcateg;
+            $annonces[]=$tab;
         }
-          
-        return $retour;
+        $s->assign('annonces', $annonces);
+     //var_dump($resAnnonce->toArray());
+        $s->display('tpl/allAnnonce.tpl');
+        $s->display('tpl/footer.tpl');
     }
+
 }
+
 ?>

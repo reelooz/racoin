@@ -5,6 +5,7 @@ use racoin\Classe\Annonce;
 use racoin\Classe\Utilisateur;
 use racoin\Classe\Photo;
 use racoin\Classe\Categorie;
+use racoin\Controleurs\Controler;
 
 App::EloConfig();
 
@@ -18,25 +19,31 @@ $Smarty->template_dir = '../tpl';
 
 
 
-$app->get('/', function () {
+/*$app->get('/', function () {
     echo "affichage de l'index";
     $Smarty = new Smarty();
     $Smarty->display('tpl/header.tpl');
     $Smarty->display('tpl/sideBar.tpl');
     $Smarty->display('tpl/accueil.tpl');
     $Smarty->display('tpl/footer.tpl');
-});
+});*/
+
+$resAnnonce = Utilisateur::all();
+var_dump($resAnnonce->toArray());
 
 $app->run();
-$resAnnonce = Annonce::all();
-var_dump($resAnnonce->toArray())
-/*$app->get('/annonce/affiche', function() use ($app) {
+//$resAnnonce = Annonce::all();
+//var_dump($resAnnonce->toArray());
 
-    $c = new \racoin\AnnonceController();
-    $c->callAction('affiche', $app->request->get());
+//echo $app->callAction("affiche", "stlflkjhv");
+
+/*$app->get('/annonce/allAffiche', function() use ($app) {
+
+    $c = new ControleurAnnonce();
+    $c->callAction('all', $app);
 }
 );
-$app->get('/annonce/contact', function() use ($app) {
+/*$app->get('/annonce/contact', function() use ($app) {
 
     $c = new \racoin\AnnonceController();
     $c->callAction('contact', $app->request->get());

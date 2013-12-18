@@ -6,10 +6,10 @@ class Annonce extends \Illuminate\Database\Eloquent\Model {
     public $timestamps=false;
     
     public function categorie() {
-        return $this->belongsTo( 'Categeorie', 'idcateg' ) ;
+        return $this->belongsTo( 'racoin\Classe\Categorie', 'idcateg' ) ;
     }
     public function utilisateur() {
-        return $this->belongsTo( 'Utilisateur', 'idutilisateur' ) ;
+        return $this->belongsTo( 'racoin\Classe\Utilisateur', 'idutil' ) ;
     }
     
     

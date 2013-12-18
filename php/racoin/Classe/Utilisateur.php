@@ -9,7 +9,7 @@ namespace racoin\Classe;
 class Utilisateur extends \Illuminate\Database\Eloquent\Model {
     
     protected $table = 'utilisateur';
-    protected $primaryKey = 'idutilisateur';
+    protected $primaryKey = 'idutil';
     public $timestamps=false;
     
     

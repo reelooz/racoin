@@ -39,7 +39,7 @@ $app->get('/annonce/:id', function($id) use ($app) {
 }
 );
 
-$app->get('/annonce/afficheCateg', function() use ($app) {
+$app->post('/annonce/afficheCateg', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $categ = $_POST["selectCateg"];

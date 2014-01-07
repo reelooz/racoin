@@ -5,11 +5,11 @@
         {section name=annonces loop=$annonces}
             <a href="#">
                 <div class="Annonce">
-                    <h3>{$annonces[annonces].titre}</h3>
-                    <p>{$annonces[annonces].descriptif}</p>
-                    <p>{$annonces[annonces].prix}</p>
-                    <p>{$annonces[annonces].post}</p>
-                    <p>{$annonces[annonces].ville}</p>
+                    <h3>Titre : {$annonces[annonces].titre}</h3>
+                    <p>Descriptif : {$annonces[annonces].descriptif}</p>
+                    <p>Prix : {$annonces[annonces].prix} euros</p>
+                    <p>Code postal : {$annonces[annonces].post}</p>
+                    <p>Ville : {$annonces[annonces].ville}</p>
                 </div>
                 <hr>
             </a>

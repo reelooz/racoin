@@ -10,10 +10,22 @@
                     <p>Prix : {$annonces[annonces].prix} euros</p>
                     <p>Code postal : {$annonces[annonces].post}</p>
                     <p>Ville : {$annonces[annonces].ville}</p>
+                    <a href="#" onClick="afficher()">Contacter le vendeur<a/>
+                    <div id="contact" style="display:none;">
+                        <p>Nom : {$annonces[annonces].nomUtil}</p>
+                        <p>Prénom : {$annonces[annonces].prenomUtil}</p>
+                        <p>Ville : {$annonces[annonces].villeUtil}</p>
+                        <p>Code postal : {$annonces[annonces].postUtil}</p>
+                        <p>Departement : {$annonces[annonces].deptUtil}</p>
+                        <p>Mail : {$annonces[annonces].mailUtil}</p>
+                        <p>Téléphone : 0{$annonces[annonces].phoneUtil}</p>
+                        
+                    </div>
                 </div>
                 <hr>
             </a>
 
         {/section}
+        
     </div>
 </section>

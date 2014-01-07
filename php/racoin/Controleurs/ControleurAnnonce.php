@@ -27,7 +27,17 @@ class ControleurAnnonce{
     
     public function displayAllAnnonce($s) {
         $s->display('tpl/header.tpl');
+        $categories = array();
+        $resCateg = Categorie::all();
+         foreach ($resCateg as $res){
+            $t=array();
+            $t['idCateg']=$res->idcateg;
+            $t['titreCateg']=$res->labelcateg;
+            $categories[]=$t;
+        }
+        $s->assign('categories', $categories);
         $s->display('tpl/sideBar.tpl');
+        
         $annonces = array();
         $resAnnonce = Annonce::with('categorie','utilisateur')->get();
         foreach ($resAnnonce as $res){
@@ -42,7 +52,10 @@ class ControleurAnnonce{
             $tab['idCateg']=$res->idcateg;
             $annonces[]=$tab;
         }
+        
+        var_dump($categories);
         $s->assign('annonces', $annonces);
+        
      //var_dump($resAnnonce->toArray());
         $s->display('tpl/allAnnonce.tpl');
         $s->display('tpl/footer.tpl');
@@ -55,6 +68,7 @@ class ControleurAnnonce{
         $tab = array();
         
         $res = Annonce::find($id);
+        $resUtil = Utilisateur::find($res->idutil);
 
         $tab['id']=$res->idannonce;
         $tab['titre']=$res->titreannonce;
@@ -62,7 +76,14 @@ class ControleurAnnonce{
         $tab['prix']=$res->prixannonce;
         $tab['post']=$res->codepostannonce;
         $tab['ville']=$res->villeannonce;
-        $tab['idUtil']=$res->idutil;
+        $tab['idUtil']=$resUtil->idutil;
+        $tab['nomUtil']=$resUtil->nom;
+        $tab['prenomUtil']=$resUtil->prenom;
+        $tab['villeUtil']=$resUtil->ville;
+        $tab['postUtil']=$resUtil->codepost;
+        $tab['deptUtil']=$resUtil->departement;
+        $tab['mailUtil']=$resUtil->mail;
+        $tab['phoneUtil']=$resUtil->telephone;
         $tab['idCateg']=$res->idcateg;
         
         $annonces[]=$tab;
@@ -70,6 +91,12 @@ class ControleurAnnonce{
         $s->assign('annonces', $annonces);
         $s->display('tpl/OneAnnonce.tpl');
         $s->display('tpl/footer.tpl');
+    }
+    
+    public function afficheCateg($s,$categ) {
+        $s->display('tpl/header.tpl');
+        $s->display('tpl/sideBar.tpl');
+        echo $categ;
     }
 
 }

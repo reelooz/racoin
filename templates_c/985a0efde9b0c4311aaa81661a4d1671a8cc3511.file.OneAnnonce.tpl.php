@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-07 15:39:44
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-07 16:13:50
          compiled from "tpl\OneAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:501652cc1c13aab393-40101215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '985a0efde9b0c4311aaa81661a4d1671a8cc3511' => 
     array (
       0 => 'tpl\\OneAnnonce.tpl',
-      1 => 1389109116,
+      1 => 1389110990,
       2 => 'file',
     ),
   ),
@@ -63,10 +63,29 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = (
 </p>
                     <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['ville'];?>
 </p>
+                    <a href="#" onClick="afficher()">Contacter le vendeur<a/>
+                    <div id="contact" style="display:none;">
+                        <p>Nom : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['nomUtil'];?>
+</p>
+                        <p>Prénom : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['prenomUtil'];?>
+</p>
+                        <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['villeUtil'];?>
+</p>
+                        <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['postUtil'];?>
+</p>
+                        <p>Departement : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['deptUtil'];?>
+</p>
+                        <p>Mail : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['mailUtil'];?>
+</p>
+                        <p>Téléphone : 0<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['phoneUtil'];?>
+</p>
+                        
+                    </div>
                 </div>
                 <hr>
             </a>
 
         <?php endfor; endif; ?>
+        
     </div>
 </section><?php }} ?>

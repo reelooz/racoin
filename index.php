@@ -23,6 +23,8 @@ $app = new Slim\Slim;
 // Fixer les chemins de template (optionnel)
 $Smarty->template_dir = '../tpl';
 
+
+
 $app->get('/annonce/allAffiche', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
@@ -34,6 +36,14 @@ $app->get('/annonce/:id', function($id) use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $c->displayOneAnnonce($Smarty,$id);
+}
+);
+
+$app->get('/annonce/afficheCateg', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $categ = $_POST["selectCateg"];
+    $c->afficheCateg($Smarty, $categ);
 }
 );
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-07 14:45:12
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-07 15:48:17
          compiled from "tpl\allAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3169552b17b7eb59989-33488169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52c0bed1eaacf6eabda0025873298b17e9697b6d' => 
     array (
       0 => 'tpl\\allAnnonce.tpl',
-      1 => 1389105909,
+      1 => 1389109693,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index_next'] = $
 $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total']);
 ?>
-            <a href="#">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['id'];?>
+">
                 <div class="Annonce">
                     <h3>Titre : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['titre'];?>
 </h3>

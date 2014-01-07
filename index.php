@@ -27,7 +27,13 @@ $app->get('/annonce/allAffiche', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $c->displayAllAnnonce($Smarty);
-    echo "dans le get de l'index";
+}
+);
+
+$app->get('/annonce/:id', function($id) use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->displayOneAnnonce($Smarty,$id);
 }
 );
 

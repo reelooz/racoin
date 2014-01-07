@@ -47,6 +47,30 @@ class ControleurAnnonce{
         $s->display('tpl/allAnnonce.tpl');
         $s->display('tpl/footer.tpl');
     }
+    
+    public function displayOneAnnonce($s,$id) {
+        $s->display('tpl/header.tpl');
+        $s->display('tpl/sideBar.tpl');
+        $annonces = array();
+        $tab = array();
+        
+        $res = Annonce::find($id);
+
+        $tab['id']=$res->idannonce;
+        $tab['titre']=$res->titreannonce;
+        $tab['descriptif']=$res->descriptifannonce;
+        $tab['prix']=$res->prixannonce;
+        $tab['post']=$res->codepostannonce;
+        $tab['ville']=$res->villeannonce;
+        $tab['idUtil']=$res->idutil;
+        $tab['idCateg']=$res->idcateg;
+        
+        $annonces[]=$tab;
+            
+        $s->assign('annonces', $annonces);
+        $s->display('tpl/OneAnnonce.tpl');
+        $s->display('tpl/footer.tpl');
+    }
 
 }
 

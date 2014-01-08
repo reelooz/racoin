@@ -43,6 +43,7 @@ $app->post('/annonce/afficheCateg', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $categ = $_POST["selectCateg"];
+    var_dump($categ);
     $c->afficheCateg($Smarty, $categ);
 }
 );

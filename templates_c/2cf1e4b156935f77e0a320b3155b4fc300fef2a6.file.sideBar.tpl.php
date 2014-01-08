@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-07 16:50:17
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-08 13:43:29
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1389113413,
+      1 => 1389188606,
       2 => 'file',
     ),
   ),
@@ -53,7 +53,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['index_next'] = $_sm
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['iteration'] == 1);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['total']);
 ?>
-                        <option value="<?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->getVariable('smarty')->value['section']['categ']['index']]['titreCateg'];?>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->getVariable('smarty')->value['section']['categ']['index']]['idCateg'];?>
 "><?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->getVariable('smarty')->value['section']['categ']['index']]['titreCateg'];?>
 </option>
                     <?php endfor; endif; ?>

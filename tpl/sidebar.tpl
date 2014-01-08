@@ -5,7 +5,7 @@
             <li>
                 <select name="selectCateg">
                     {section name=categ loop=$categories}
-                        <option value="{$categories[categ].titreCateg}">{$categories[categ].titreCateg}</option>
+                        <option value="{$categories[categ].idCateg}">{$categories[categ].titreCateg}</option>
                     {/section}
                 </select>
             </li>

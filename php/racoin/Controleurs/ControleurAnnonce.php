@@ -52,11 +52,7 @@ class ControleurAnnonce{
             $tab['idCateg']=$res->idcateg;
             $annonces[]=$tab;
         }
-        
-        var_dump($categories);
         $s->assign('annonces', $annonces);
-        
-     //var_dump($resAnnonce->toArray());
         $s->display('tpl/allAnnonce.tpl');
         $s->display('tpl/footer.tpl');
     }
@@ -95,8 +91,34 @@ class ControleurAnnonce{
     
     public function afficheCateg($s,$categ) {
         $s->display('tpl/header.tpl');
+        $categories = array();
+        $resCateg = Categorie::all();
+         foreach ($resCateg as $res){
+            $t=array();
+            $t['idCateg']=$res->idcateg;
+            $t['titreCateg']=$res->labelcateg;
+            $categories[]=$t;
+        }
+        $s->assign('categories', $categories);
         $s->display('tpl/sideBar.tpl');
-        echo $categ;
+        $resRecherche = Annonce::where('idcateg', '=', $categ)->get();
+        $recherche = array();
+        foreach ($resRecherche as $res){
+            $tab=array();
+            $tab['id']=$res->idannonce;
+            $tab['titre']=$res->titreannonce;
+            $tab['descriptif']=$res->descriptifannonce;
+            $tab['prix']=$res->prixannonce;
+            $tab['post']=$res->codepostannonce;
+            $tab['ville']=$res->villeannonce;
+            $tab['idUtil']=$res->idutil;
+            $tab['idCateg']=$categ;
+            $recherche[]=$tab;
+        }
+        var_dump($recherche);
+        $s->assign('annonces', $recherche);
+        $s->display('tpl/allAnnonce.tpl');
+        $s->display('tpl/footer.tpl');
     }
 
 }

@@ -24,5 +24,5 @@
         </ul>
     </form>
 </nav>
-<a id="but" href="creation.html">Ajouter annonce</a>
+<a id="but" href="addAnnonce">Ajouter annonce</a>
 <a id="but" href=#>Gérer mes annonces</a>

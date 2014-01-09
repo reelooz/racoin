@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-08 13:38:04
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-09 16:48:08
          compiled from "tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:777252b06398218603-08165138%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8e66305ba4bb7982307a893e4dba8f87e18e007f' => 
     array (
       0 => 'tpl\\header.tpl',
-      1 => 1389188158,
+      1 => 1389286007,
       2 => 'file',
     ),
   ),
@@ -30,6 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <script src="../web/js/jquery.js"></script>
         <script type="text/javascript" src="../web/js/fonction.js"></script>
+        <script type="text/javascript" src="../web/js/ckeditor/ckeditor.js"></script>
     </head>
     <body>   
         <body>

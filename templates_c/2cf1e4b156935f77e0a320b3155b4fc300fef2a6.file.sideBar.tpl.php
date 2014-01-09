@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-08 13:43:29
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-09 16:29:17
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1389188606,
+      1 => 1389284934,
       2 => 'file',
     ),
   ),
@@ -74,6 +74,6 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
         </ul>
     </form>
 </nav>
-<a id="but" href="creation.html">Ajouter annonce</a>
+<a id="but" href="addAnnonce">Ajouter annonce</a>
 <a id="but" href=#>Gérer mes annonces</a>
 <?php }} ?>

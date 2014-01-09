@@ -35,7 +35,19 @@ $app->get('/annonce/allAffiche', function() use ($app) {
 $app->get('/annonce/:id', function($id) use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
-    $c->displayOneAnnonce($Smarty,$id);
+    if (preg_match('/[1-9999999999999999999]/', $id)){
+        $c->displayOneAnnonce($Smarty,$id);
+    }else{
+        $c->afficheCategUrl($Smarty,$id);
+    }
+    
+}
+);
+
+$app->get('/addAnnonce', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->addAnnonce($Smarty);
 }
 );
 
@@ -43,7 +55,6 @@ $app->post('/annonce/afficheCateg', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $categ = $_POST["selectCateg"];
-    var_dump($categ);
     $c->afficheCateg($Smarty, $categ);
 }
 );

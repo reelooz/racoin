@@ -161,20 +161,80 @@ class ControleurAnnonce{
             }            
             $s->assign('annonces', $annonce);
             $s->display('tpl/allAnnonce.tpl');
-            $s->display('tpl/footer.tpl');
-            
+            $s->display('tpl/footer.tpl');            
         }
         
     }
     
-    public function addAnnonce($s) {        
+    public function addAnnonce($s, $app) { 
+        $url = $app->urlFor('ajout');
+        $s->assign('url', $url);
+        $date = date("Y-m-d G:i:s");
+        $s->assign('date', $date);
+        $categories = array();
+        $resCateg = Categorie::all();
+         foreach ($resCateg as $res){
+            $t=array();
+            $t['idCateg']=$res->idcateg;
+            $t['titreCateg']=$res->labelcateg;
+            $categories[]=$t;
+        }
+        $s->assign('categories', $categories);
         $s->display('tpl/header.tpl');
         $s->display('tpl/ajoutAnnonce.tpl');
         $s->display('tpl/footer.tpl');
-        echo'toto';
     }
-    
+    public function ajoutAnnonce($s) {
+        $res = $_POST['test'];
+        if ($res == "Ajouter l'annonce"){
+            $user = new Utilisateur();
+            $user->nom = $_POST['NomPosteurAnnonce'];
+            $user->prenom = $_POST['PrenomPosteurAnnonce'];
+            $user->ville = $_POST['villeAnnonce'];
+            $user->codepost = $_POST['codePostAnnonce'];
+            $user->departement = 'osef';
+            $user->mail = $_POST['MailPosteurAnnonce'];
+            $user->motdepasse = md5($_POST['PassAnnonce']);
+            $user->telephone = $_POST['TelPosteurAnnonce'];
+            $user->save();
+            $userid = $user->idutil;
+            var_dump($user->toArray());
+            $annonce = new Annonce();
+            $annonce->titreannonce = $_POST['titreAnnonce'];
+            $annonce->descriptifannonce = $_POST['descrAnnonce'];
+            $annonce->prixannonce = $_POST['prixAnnonce'];
+            $annonce->dateannonce = $_POST['dateAnnonce'];
+            $annonce->villeannonce = $_POST['villeAnnonce'];
+            $annonce->codepostalannonce = $_POST['codePostAnnonce'];
+            $annonce->motdepasseannonce = md5($_POST['PassAnnonce']);
+            $annonce->emailannonce = $_POST['MailPosteurAnnonce']; ;
+            $annonce->idutil = $userid;
+            $annonce->idcateg = $_POST['selectCateg'];
+            var_dump($annonce->toArray());
+            $res = $annonce->save();
+            var_dump($res);
+            $annonceId = $annonce->idannonce;
+        }elseif($res == "Previsualiser l'annonce"){
+            $annonce = array();
+            $annonce['titre'] = $_POST['titreAnnonce'];
+            $annonce['description'] = $_POST['descrAnnonce'];
+            $annonce['prix'] = $_POST['prixAnnonce'];
+            $annonce['date'] = $_POST['dateAnnonce'];
+            $annonce['ville'] = $_POST['villeAnnonce'];
+            $annonce['mail'] = $_POST['MailPosteurAnnonce'];
+            $annonce['post'] = $_POST['codePostAnnonce'];
+            $annonce['nom'] = $_POST['NomPosteurAnnonce'];
+            $annonce['prenom'] = $_POST['PrenomPosteurAnnonce'];
+            $annonce['phoneUser'] = $_POST['TelPosteurAnnonce'];
+            
+            $s->display('tpl/header.tpl');
+            $s->assign('annonce', $annonce);
+            $s->display('tpl/PreviewOneAnnonce.tpl');
+            $s->display('tpl/footer.tpl');
+        }
+    }
    
+    
 
 }
 

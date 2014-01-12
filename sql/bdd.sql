@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `annonce` (
   `titreannonce` varchar(40) NOT NULL,
   `descriptifannonce` text NOT NULL,
   `prixannonce` int(10) NOT NULL,
-  `dateannonce` date NOT NULL,
+  `dateannonce`datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `villeannonce` varchar(400) NOT NULL,
   `codepostalannonce` varchar(400) NOT NULL,
   `motdepasseannonce` int(10) NOT NULL,

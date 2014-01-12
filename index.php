@@ -25,12 +25,32 @@ $Smarty->template_dir = '../tpl';
 
 
 
-$app->get('/annonce/allAffiche', function() use ($app) {
+$app->get('/annonces/allAffiche', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $c->displayAllAnnonce($Smarty);
 }
 );
+$app->get('/annonces/addAnnonce', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->addAnnonce($Smarty,$app);
+}
+)-> name ('ajout');
+
+$app->get('/annonces/prevAnnonce', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->previsualiserAnnonce($Smarty,$app);
+}
+)-> name ('prev');
+
+$app->post('/annonces/addAnnonce', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->ajoutAnnonce($Smarty);
+}
+)-> name ('ajoutPost');
 
 $app->get('/annonce/:id', function($id) use ($app) {
     $Smarty = new Smarty();
@@ -39,25 +59,22 @@ $app->get('/annonce/:id', function($id) use ($app) {
         $c->displayOneAnnonce($Smarty,$id);
     }else{
         $c->afficheCategUrl($Smarty,$id);
-    }
-    
+        echo 'dans recherche cat';
+    }    
 }
 );
 
-$app->get('/addAnnonce', function() use ($app) {
-    $Smarty = new Smarty();
-    $c = new ControleurAnnonce();
-    $c->addAnnonce($Smarty);
-}
-);
 
-$app->post('/annonce/afficheCateg', function() use ($app) {
+
+$app->post('/annonces/afficheCateg', function() use ($app) {
     $Smarty = new Smarty();
     $c = new ControleurAnnonce();
     $categ = $_POST["selectCateg"];
     $c->afficheCateg($Smarty, $categ);
 }
 );
+
+
 
 $app->run();
 

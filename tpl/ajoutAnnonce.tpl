@@ -1,4 +1,4 @@
-<form method="POST" action="{$url}">
+<form method="POST" action="{$url}" enctype="multipart/form-data">
         
     <h1> Votre annonce </h1>
     Catégorie : <select name="selectCateg">
@@ -31,6 +31,8 @@
                 </script>
       Prix: <input type="number" name="prixAnnonce" placeholder="Prix de l'annonce" min="0"/> Euros <br><br>
       <input type="hidden" name="dateAnnonce" value="{$date}"/>
+      Photo n°1 :   <INPUT name="file1" type=file size=50><br>
+                    <span id="leschamps_2"><a class=bouton href="javascript:create_champ(2)">Ajouter une photo</a></span></br></br>
       
       <h1> Localisation </h1>
       Ville: <input type="text" name="villeAnnonce" placeholder="Ville"/><br>      
@@ -44,7 +46,7 @@
      Mot de passe: <input type="password" name="PassAnnonce" placeholder="Mot de passe de votre annonce"/><br><br>
       
     
-    <input type="submit" value="Ajouter l'annonce" name="test"/>
-    <input type="submit" value="Previsualiser l'annonce" name="test"/>
+    <input type="submit" value="Ajouter l'annonce" name="choixAjout"/>
+    <input type="submit" value="Previsualiser l'annonce" name="choixAjout"/>
     
 </form>

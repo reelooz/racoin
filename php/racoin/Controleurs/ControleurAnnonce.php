@@ -5,11 +5,8 @@ use \racoin\Classe\Annonce;
 use \racoin\Classe\Categorie;
 use \racoin\Classe\Photo;
 use \racoin\Classe\Utilisateur;
+use racoin\Tools\tools;
 
-/* * *******************************************************************
- * A faire
- * 
- */
 
 class ControleurAnnonce{
 
@@ -110,6 +107,7 @@ class ControleurAnnonce{
         }
         $s->assign('categories', $categories);
         $s->display('tpl/sideBar.tpl');
+        
         $resRecherche = Annonce::where('idcateg', '=', $categ)->get();
         
         $recherche = array();
@@ -185,8 +183,9 @@ class ControleurAnnonce{
         $s->display('tpl/footer.tpl');
     }
     public function ajoutAnnonce($s) {
-        $res = $_POST['test'];
-        if ($res == "Ajouter l'annonce"){
+        $t = new tools();
+        $choix = $_POST['choixAjout'];
+        if ($choix == "Ajouter l'annonce"){
             $user = new Utilisateur();
             $user->nom = $_POST['NomPosteurAnnonce'];
             $user->prenom = $_POST['PrenomPosteurAnnonce'];
@@ -214,7 +213,35 @@ class ControleurAnnonce{
             $res = $annonce->save();
             var_dump($res);
             $annonceId = $annonce->idannonce;
-        }elseif($res == "Previsualiser l'annonce"){
+            
+            $path = "files/";
+            $paththumb = "files/thumb/";
+            $i=1;
+            $files=array();
+            while (isset($_FILES['file'.$i]['tmp_name'])){
+                $photo = new Photo();
+                    if($_FILES['file'.$i]['tmp_name']!=""){
+                        $extension_upload = strtolower(  substr(  strrchr($_FILES['file'.$i]['name'], '.')  ,1)  ); 
+                        $files[$i]["nom"] = $_FILES['file'.$i]['name'];
+                        $files[$i]["path"]=$path.md5(uniqid(rand(), true)).".".$extension_upload;
+                        $files[$i]["paththumb"]=$paththumb.md5(uniqid(rand(), true)).".".$extension_upload;
+                        
+                        echo $files[$i]["paththumb"];
+                        $photo->nomphoto = $files[$i]["nom"];
+                        $photo->cheminfull = $files[$i]["path"];
+                        $photo->cheminthum = $files[$i]["path"];
+                        $photo->idannonce = $annonceId;
+                        var_dump($photo->toArray());
+                        while (file_exists($files[$i]["path"])) {                                                
+                            $files[$i]["path"]=$path.md5(uniqid(rand(), true)).".".$extension_upload;                                                
+                        }
+                        move_uploaded_file($_FILES['file'.$i]['tmp_name'],$files[$i]["path"]);
+                        $test = $t->imagethumb($files[$i]["path"], $files[$i]["paththumb"], 150, FALSE, TRUE);
+                        var_dump($test);
+                    }
+                    $i++;
+           }
+        }elseif($choix == "Previsualiser l'annonce"){
             $annonce = array();
             $annonce['titre'] = $_POST['titreAnnonce'];
             $annonce['description'] = $_POST['descrAnnonce'];

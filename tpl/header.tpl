@@ -10,6 +10,7 @@
         <script src="../web/js/jquery.js"></script>
         <script type="text/javascript" src="../web/js/fonction.js"></script>
         <script type="text/javascript" src="../web/js/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="../web/js/pieceJointe.js"></script>
     </head>
     <body>   
         <body>

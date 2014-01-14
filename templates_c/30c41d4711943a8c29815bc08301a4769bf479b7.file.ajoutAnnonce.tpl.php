@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-12 17:12:56
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-14 13:23:23
          compiled from "tpl\ajoutAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2138452ced11a358ff0-40397936%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '30c41d4711943a8c29815bc08301a4769bf479b7' => 
     array (
       0 => 'tpl\\ajoutAnnonce.tpl',
-      1 => 1389546768,
+      1 => 1389705785,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52ced11a3a5b07_87629837')) {function content_52ced11a3a5b07_87629837($_smarty_tpl) {?><form method="POST" action="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-">
+" enctype="multipart/form-data">
         
     <h1> Votre annonce </h1>
     Catégorie : <select name="selectCateg">
@@ -85,6 +85,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
       Prix: <input type="number" name="prixAnnonce" placeholder="Prix de l'annonce" min="0"/> Euros <br><br>
       <input type="hidden" name="dateAnnonce" value="<?php echo $_smarty_tpl->tpl_vars['date']->value;?>
 "/>
+      Photo n°1 :   <INPUT name="file1" type=file size=50><br>
+                    <span id="leschamps_2"><a class=bouton href="javascript:create_champ(2)">Ajouter une photo</a></span></br></br>
       
       <h1> Localisation </h1>
       Ville: <input type="text" name="villeAnnonce" placeholder="Ville"/><br>      
@@ -98,8 +100,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
      Mot de passe: <input type="password" name="PassAnnonce" placeholder="Mot de passe de votre annonce"/><br><br>
       
     
-    <input type="submit" value="Ajouter l'annonce" name="test"/>
-    <input type="submit" value="Previsualiser l'annonce" name="test"/>
+    <input type="submit" value="Ajouter l'annonce" name="choixAjout"/>
+    <input type="submit" value="Previsualiser l'annonce" name="choixAjout"/>
     
 </form>
 <?php }} ?>

@@ -23,6 +23,16 @@
                     </div>
                 </div>
                 <hr>
+                <a href="#" OnClick="validation()"> Modifier l'annonce</a>
+                   <div id="validation" style="display:none;">
+                       <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+                       <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/{$annonces[annonces].id}">
+                           Email : <input type="text" name="mail" />
+                           Mot de passe : <input type="text" name="pass"/>
+                           <input type="submit" value="Valider pour modifier"/>
+                       </form>
+                        
+                    </div>
             </a>
 
         {/section}

@@ -38,12 +38,7 @@ $app->get('/annonces/addAnnonce', function() use ($app) {
 }
 )-> name ('ajout');
 
-$app->get('/annonces/prevAnnonce', function() use ($app) {
-    $Smarty = new Smarty();
-    $c = new ControleurAnnonce();
-    $c->previsualiserAnnonce($Smarty,$app);
-}
-)-> name ('prev');
+
 
 $app->post('/annonces/addAnnonce', function() use ($app) {
     $Smarty = new Smarty();
@@ -51,6 +46,13 @@ $app->post('/annonces/addAnnonce', function() use ($app) {
     $c->ajoutAnnonce($Smarty);
 }
 )-> name ('ajoutPost');
+
+$app->get('/annonces/prevAnnonce', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->previsualiserAnnonce($Smarty,$app);
+}
+)-> name ('prev');
 
 $app->get('/annonce/:id', function($id) use ($app) {
     $Smarty = new Smarty();
@@ -63,8 +65,19 @@ $app->get('/annonce/:id', function($id) use ($app) {
     }    
 }
 );
+$app->post('/annonces/modifAnnonce/:id', function($id) use ($app){
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->modAnnonce($Smarty,$app, $id);
+}
+)->name ('modif');
 
-
+$app->post('/annonces/modifAnnonce', function() use ($app){
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->modifAnnonce($Smarty);
+}
+);
 
 $app->post('/annonces/afficheCateg', function() use ($app) {
     $Smarty = new Smarty();

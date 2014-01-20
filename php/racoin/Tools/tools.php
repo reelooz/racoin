@@ -20,6 +20,10 @@ class tools {
         }
     }
     
+     public function getRequestField($fieldName, $defaultValue = null){
+        return (isset($_REQUEST[$fieldName]) && $_REQUEST[$fieldName] !="") ? $_REQUEST[$fieldName] : $defaultValue;
+    }
+    
     function imagethumb( $image_src , $image_dest = NULL , $max_size = 100, $expand = FALSE, $square = FALSE )
 {
 	if( !file_exists($image_src) ) return FALSE;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-14 13:23:23
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-14 16:02:40
          compiled from "tpl\ajoutAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2138452ced11a358ff0-40397936%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '30c41d4711943a8c29815bc08301a4769bf479b7' => 
     array (
       0 => 'tpl\\ajoutAnnonce.tpl',
-      1 => 1389705785,
+      1 => 1389715357,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 " enctype="multipart/form-data">
         
     <h1> Votre annonce </h1>
-    Catégorie : <select name="selectCateg">
+    Catégorie* : <select name="selectCateg">
             <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['categ'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['categ']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['name'] = 'categ';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['categories']->value) ? count($_loop) : max(0, (int) $_loop); unset($_loop);
@@ -59,7 +59,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
 </option>
             <?php endfor; endif; ?>
         </select><br><br>
-    Titre de l'annonce : <input type="text" name="titreAnnonce" placeholder="Titre de l'annonce" size="150"/><br><br>
+    Titre de l'annonce* : <input type="text" name="titreAnnonce" placeholder="Titre de l'annonce" size="150"/><br><br>
     Descriptif de l'annonce : <br><br><textarea  id="objet" name="descrAnnonce" cols="150" rows="10" ></textarea><br><br>
                 <script type='text/javascript'>
                     //<![CDATA[
@@ -82,22 +82,22 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
                             CKEDITOR.config.contentsCss = '../web/css/screen.css' ; 
                     //]]>
                 </script>
-      Prix: <input type="number" name="prixAnnonce" placeholder="Prix de l'annonce" min="0"/> Euros <br><br>
+      Prix* : <input type="number" name="prixAnnonce" placeholder="Prix de l'annonce" min="0"/> Euros <br><br>
       <input type="hidden" name="dateAnnonce" value="<?php echo $_smarty_tpl->tpl_vars['date']->value;?>
 "/>
       Photo n°1 :   <INPUT name="file1" type=file size=50><br>
                     <span id="leschamps_2"><a class=bouton href="javascript:create_champ(2)">Ajouter une photo</a></span></br></br>
       
       <h1> Localisation </h1>
-      Ville: <input type="text" name="villeAnnonce" placeholder="Ville"/><br>      
-      Code Postal: <input type="text" name="codePostAnnonce" placeholder="Code Postal"/><br><br>
+      Ville* : <input type="text" name="villeAnnonce" placeholder="Ville"/><br>      
+      Code Postal* : <input type="text" name="codePostAnnonce" placeholder="Code Postal"/><br><br>
       
       <h1> Vos information </h1>
-     Nom: <input type="text" name="NomPosteurAnnonce" placeholder="Votre nom"/><br>
-     Prénom: <input type="text" name="PrenomPosteurAnnonce" placeholder="Votre prénom"/><br>
-     Mail: <input type="email" name="MailPosteurAnnonce" placeholder="Votre mail de contact"/><br>
-     Téléphone: <input type="tel" name="TelPosteurAnnonce" placeholder="Votre téléphone de contact"/><br>
-     Mot de passe: <input type="password" name="PassAnnonce" placeholder="Mot de passe de votre annonce"/><br><br>
+     Nom* : <input type="text" name="NomPosteurAnnonce" placeholder="Votre nom"/><br>
+     Prénom* : <input type="text" name="PrenomPosteurAnnonce" placeholder="Votre prénom"/><br>
+     Mail* : <input type="email" name="MailPosteurAnnonce" placeholder="Votre mail de contact"/><br>
+     Téléphone* : <input type="tel" name="TelPosteurAnnonce" placeholder="Votre téléphone de contact"/><br>
+     Mot de passe* : <input type="password" name="PassAnnonce" placeholder="Mot de passe de votre annonce"/><br><br>
       
     
     <input type="submit" value="Ajouter l'annonce" name="choixAjout"/>

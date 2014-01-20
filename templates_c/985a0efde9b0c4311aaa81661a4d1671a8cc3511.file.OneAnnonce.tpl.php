@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-09 14:09:58
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-20 17:15:54
          compiled from "tpl\OneAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:501652cc1c13aab393-40101215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '985a0efde9b0c4311aaa81661a4d1671a8cc3511' => 
     array (
       0 => 'tpl\\OneAnnonce.tpl',
-      1 => 1389188158,
+      1 => 1390238148,
       2 => 'file',
     ),
   ),
@@ -83,6 +83,17 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = (
                     </div>
                 </div>
                 <hr>
+                <a href="#" OnClick="validation()"> Modifier l'annonce</a>
+                   <div id="validation" style="display:none;">
+                       <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+                       <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['id'];?>
+">
+                           Email : <input type="text" name="mail" />
+                           Mot de passe : <input type="text" name="pass"/>
+                           <input type="submit" value="Valider pour modifier"/>
+                       </form>
+                        
+                    </div>
             </a>
 
         <?php endfor; endif; ?>

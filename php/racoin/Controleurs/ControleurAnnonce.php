@@ -359,6 +359,12 @@ class ControleurAnnonce {
             if ($mail == $emailRecup && $pass==$passRecup){
                 $url = $app->urlFor('supp');
                 $s->assign('url', $url);
+                $photos = Photo::where('idannonce', '=', $id)->get();
+                foreach ($photos as $photo) {
+                    unlink ($photo->cheminfull);
+                    unlink($photo->cheminthum);
+                    $photo->delete();
+                }
                 $annonce = Annonce::find($id);
                 $annonce->delete();
                 $s->display('tpl/header.tpl');

@@ -22,5 +22,8 @@
             </a>
 
         {/section}
+        {if !isset($annonces[0]) }
+            <p>Pas d'annonce</p>
+        {/if}
     </div>
 </section>

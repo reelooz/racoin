@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-12 13:54:22
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 15:57:41
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1389534857,
+      1 => 1390319857,
       2 => 'file',
     ),
   ),
@@ -24,11 +24,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52b0639845f691_16328267')) {function content_52b0639845f691_16328267($_smarty_tpl) {?><nav>
-    <form method="POST" action="afficheCateg">
+    <form method="POST" action="/ProjetRacoinNet/annonces/afficheCateg">
         <ul>
-            <li><input type="text"  placeholder="Votre recherche" autofocus /></li>
+            <li>
+                <input type="text" name="selectRecherche" placeholder="Votre recherche" autofocus />
+            </li>
             <li>
                 <select name="selectCateg">
+                    <option value="-1">Selectionner la catégorie</option>
                     <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['categ'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['categ']);
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['name'] = 'categ';
 $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['categories']->value) ? count($_loop) : max(0, (int) $_loop); unset($_loop);
@@ -59,21 +62,21 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
                     <?php endfor; endif; ?>
                 </select>
             </li>
-            <li> <select name="thelist">
-                    <option>Région</option>
-                    <option>Alsace</option>
-                    <option>Lorraine</option>
-                </select></li>
-            <li> <select name="thelist">
-                    <option>Département</option>
-                    <option>Vosges</option>
-                    <option>Meuthe-et-Moselle</option>
-                </select></li>
-            <li><input type="text" placeholder="Code postal ex:54000"/></li>
-            <li><input type="submit" name="Rechercher" value="Rechercher"/></li>
+            <li> 
+                Prix : <input type="text" name="selectPrix" </input>
+            </li>
+            <li>
+                <input type="submit" name="Rechercher" value="Rechercher"/>
+            </li>
         </ul>
     </form>
 </nav>
 <a id="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
-<a id="but" href=#>Gérer mes annonces</a>
+<a id="but" onClick="validationMesAnnonces()">Gérer mes annonces</a>
+    <div id="validationMesAnnonces" style="display:none;">
+        <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
+            <input type="email" name="mail" placeholder="Votre email" autofocus/>
+            <input type="submit" value="Rechercher"/>
+        </form>
+    </div>
 <?php }} ?>

@@ -10,3 +10,6 @@ function validation(){
 function validationSupp(){
     document.getElementById("validationSupp").style.display="inline";
 }
+function validationMesAnnonces(){
+    document.getElementById("validationMesAnnonces").style.display="inline";
+}

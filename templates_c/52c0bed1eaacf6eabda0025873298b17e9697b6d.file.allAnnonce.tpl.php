@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 10:08:50
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 15:55:05
          compiled from "tpl\allAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3169552b17b7eb59989-33488169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52c0bed1eaacf6eabda0025873298b17e9697b6d' => 
     array (
       0 => 'tpl\\allAnnonce.tpl',
-      1 => 1390298805,
+      1 => 1390319690,
       2 => 'file',
     ),
   ),
@@ -77,5 +77,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = (
             </a>
 
         <?php endfor; endif; ?>
+        <?php if (!isset($_smarty_tpl->tpl_vars['annonces']->value[0])) {?>
+            <p>Pas d'annonce</p>
+        <?php }?>
     </div>
 </section><?php }} ?>

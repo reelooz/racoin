@@ -24,6 +24,12 @@ $app = new Slim\Slim;
 $Smarty->template_dir = '../tpl';
 
 
+$app->get('/', function() use ($app) {
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->displayAllAnnonce($Smarty);
+}
+);
 
 $app->get('/annonces/allAffiche', function() use ($app) {
     $Smarty = new Smarty();
@@ -94,6 +100,12 @@ $app->post('/annonces/suppAnnonce/:id', function($id) use ($app){
 }
 )->name ('supp');
 
+
+$app->post('/annonces/mesAnnonces', function() use ($app){
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->mesAnnonces($Smarty);
+});
 
 
 $app->run();

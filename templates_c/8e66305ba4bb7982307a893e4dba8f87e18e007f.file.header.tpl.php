@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 10:12:37
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 14:32:14
          compiled from "tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:777252b06398218603-08165138%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8e66305ba4bb7982307a893e4dba8f87e18e007f' => 
     array (
       0 => 'tpl\\header.tpl',
-      1 => 1390299152,
+      1 => 1390314678,
       2 => 'file',
     ),
   ),
@@ -36,5 +36,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </head>
     <body>
         <header>
-           <h1>Racoincoin.net</h1>
+            <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
         </header><?php }} ?>

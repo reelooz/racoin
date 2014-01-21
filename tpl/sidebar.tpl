@@ -1,28 +1,31 @@
 <nav>
-    <form method="POST" action="afficheCateg">
+    <form method="POST" action="/ProjetRacoinNet/annonces/afficheCateg">
         <ul>
-            <li><input type="text"  placeholder="Votre recherche" autofocus /></li>
+            <li>
+                <input type="text" name="selectRecherche" placeholder="Votre recherche" autofocus />
+            </li>
             <li>
                 <select name="selectCateg">
+                    <option value="-1">Selectionner la catégorie</option>
                     {section name=categ loop=$categories}
                         <option value="{$categories[categ].idCateg}">{$categories[categ].titreCateg}</option>
                     {/section}
                 </select>
             </li>
-            <li> <select name="thelist">
-                    <option>Région</option>
-                    <option>Alsace</option>
-                    <option>Lorraine</option>
-                </select></li>
-            <li> <select name="thelist">
-                    <option>Département</option>
-                    <option>Vosges</option>
-                    <option>Meuthe-et-Moselle</option>
-                </select></li>
-            <li><input type="text" placeholder="Code postal ex:54000"/></li>
-            <li><input type="submit" name="Rechercher" value="Rechercher"/></li>
+            <li> 
+                Prix : <input type="text" name="selectPrix" </input>
+            </li>
+            <li>
+                <input type="submit" name="Rechercher" value="Rechercher"/>
+            </li>
         </ul>
     </form>
 </nav>
 <a id="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
-<a id="but" href=#>Gérer mes annonces</a>
+<a id="but" onClick="validationMesAnnonces()">Gérer mes annonces</a>
+    <div id="validationMesAnnonces" style="display:none;">
+        <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
+            <input type="email" name="mail" placeholder="Votre email" autofocus/>
+            <input type="submit" value="Rechercher"/>
+        </form>
+    </div>

@@ -10,18 +10,7 @@ use racoin\Tools\tools;
 
 class ControleurAnnonce {
 
-    public function afficheAnnonce($id) {
-        return "afficheAnnonce(" . $id . ")";
-    }
-
-    public function afficheContact($id) {
-        return "afficheContact(" . $id . ")";
-    }
-
-    public function afficheAjout() {
-        return "afficheAjout()";
-    }
-
+    
     public function displayAllAnnonce($s) {
         $s->display('tpl/header.tpl');
         $categories = array();
@@ -39,7 +28,7 @@ class ControleurAnnonce {
         $resAnnonce = Annonce::with('categorie', 'utilisateur')->orderBy('dateannonce', 'DESC')->get();
         foreach ($resAnnonce as $res) {
             $tab = array();
-            
+
             /*             * *************Partie de traitement des photos************** */
             $tab['miniature'] = null;
             $photos = Photo::where('idannonce', '=', $res->idannonce)->get();
@@ -48,7 +37,7 @@ class ControleurAnnonce {
                 break;
             }
             /*             * ********************************************************* */
-            
+
             $tab['id'] = $res->idannonce;
             $tab['titre'] = $res->titreannonce;
             $tab['descriptif'] = $res->descriptifannonce;
@@ -120,37 +109,96 @@ class ControleurAnnonce {
     }
 
     public function afficheCateg($s, $categ) {
+        $t = new tools();
         $s->display('tpl/header.tpl');
         $categories = array();
         $resCateg = Categorie::all();
         foreach ($resCateg as $res) {
-            $t = array();
-            $t['idCateg'] = $res->idcateg;
-            $t['titreCateg'] = $res->labelcateg;
-            $categories[] = $t;
+            $taa = array();
+            $taa['idCateg'] = $res->idcateg;
+            $taa['titreCateg'] = $res->labelcateg;
+            $categories[] = $taa;
         }
         $s->assign('categories', $categories);
         $s->display('tpl/sideBar.tpl');
-
-        $resRecherche = Annonce::where('idcateg', '=', $categ)->get();
-
-        $recherche = array();
-        foreach ($resRecherche as $res) {
-            $tab = array();
-            $tab['id'] = $res->idannonce;
-            $tab['titre'] = $res->titreannonce;
-            $tab['descriptif'] = $res->descriptifannonce;
-            $tab['prix'] = $res->prixannonce;
-            $tab['post'] = $res->codepostalannonce;
-            $tab['ville'] = $res->villeannonce;
-            $tab['idUtil'] = $res->idutil;
-            $tab['idCateg'] = $categ;
-            $recherche[] = $tab;
+        if ($t->getRequestField('selectRecherche') != null) {
+            if ($t->getRequestField('selectPrix') != null) {
+                $rech = '%' . $_POST['selectRecherche'] . '%';
+                $resRecherche = Annonce::where('descriptifannonce', 'like', $rech)->orWhere('titreannonce', 'like', $rech)->having('prixannonce', '<', $_POST['selectPrix'])->orderBy('dateannonce', 'DESC')->get();
+                $recherche = array();
+                foreach ($resRecherche as $res) {
+                    $tab = array();
+                    $tab['id'] = $res->idannonce;
+                    $tab['titre'] = $res->titreannonce;
+                    $tab['descriptif'] = $res->descriptifannonce;
+                    $tab['prix'] = $res->prixannonce;
+                    $tab['post'] = $res->codepostalannonce;
+                    $tab['ville'] = $res->villeannonce;
+                    $tab['idUtil'] = $res->idutil;
+                    $tab['idCateg'] = $categ;
+                    $recherche[] = $tab;
+                }
+                $s->assign('annonces', $recherche);
+                $s->display('tpl/allAnnonce.tpl');
+            }            
+         else {
+            $rech = '%' . $_POST['selectRecherche'] . '%';
+            $resRecherche = Annonce::where('titreannonce', 'like', $rech)->orWhere('descriptifannonce', 'like', $rech)->orderBy('dateannonce', 'DESC')->get();
+            $recherche = array();
+            foreach ($resRecherche as $res) {
+                $tab = array();
+                $tab['id'] = $res->idannonce;
+                $tab['titre'] = $res->titreannonce;
+                $tab['descriptif'] = $res->descriptifannonce;
+                $tab['prix'] = $res->prixannonce;
+                $tab['post'] = $res->codepostalannonce;
+                $tab['ville'] = $res->villeannonce;
+                $tab['idUtil'] = $res->idutil;
+                $tab['idCateg'] = $categ;
+                $recherche[] = $tab;
+            }
+            $s->assign('annonces', $recherche);
+            $s->display('tpl/allAnnonce.tpl');
         }
-        $s->assign('annonces', $recherche);
-        $s->display('tpl/allAnnonce.tpl');
+    
+        } elseif ($t->getRequestField('selectCateg') != null && $t->getRequestField('selectCateg') != -1) {
+            $resRecherche = Annonce::where('idcateg', '=', $categ)->orderBy('dateannonce', 'DESC')->get();
+            $recherche = array();
+            foreach ($resRecherche as $res) {
+                $tab = array();
+                $tab['id'] = $res->idannonce;
+                $tab['titre'] = $res->titreannonce;
+                $tab['descriptif'] = $res->descriptifannonce;
+                $tab['prix'] = $res->prixannonce;
+                $tab['post'] = $res->codepostalannonce;
+                $tab['ville'] = $res->villeannonce;
+                $tab['idUtil'] = $res->idutil;
+                $tab['idCateg'] = $categ;
+                $recherche[] = $tab;
+            }
+            $s->assign('annonces', $recherche);
+            $s->display('tpl/allAnnonce.tpl');
+        } elseif ($t->getRequestField('selectPrix') != null) {
+            $resRecherche = Annonce::where('prixannonce', '<', $_POST['selectPrix'])->orderBy('dateannonce', 'DESC')->get();
+            $recherche = array();
+            foreach ($resRecherche as $res) {
+                $tab = array();
+                $tab['id'] = $res->idannonce;
+                $tab['titre'] = $res->titreannonce;
+                $tab['descriptif'] = $res->descriptifannonce;
+                $tab['prix'] = $res->prixannonce;
+                $tab['post'] = $res->codepostalannonce;
+                $tab['ville'] = $res->villeannonce;
+                $tab['idUtil'] = $res->idutil;
+                $tab['idCateg'] = $categ;
+                $recherche[] = $tab;
+            }
+            $s->assign('annonces', $recherche);
+            $s->display('tpl/allAnnonce.tpl');
+        }
         $s->display('tpl/footer.tpl');
     }
+    
 
     public function afficheCategUrl($s, $categ) {
         $s->display('tpl/header.tpl');
@@ -347,21 +395,21 @@ class ControleurAnnonce {
 
         $this->displayOneAnnonce($s, $_POST['id']);
     }
-    
-    public function suppAnnonce($s, $app, $id){
+
+    public function suppAnnonce($s, $app, $id) {
         $t = new tools();
         if ($t->getRequestField('mail') != null && $t->getRequestField('pass') != null) {
             $mail = $_POST['mail'];
             $pass = md5($_POST['pass']);
-            $annonce=Annonce::find($id);
+            $annonce = Annonce::find($id);
             $passRecup = $annonce->motdepasseannonce;
             $emailRecup = $annonce->emailannonce;
-            if ($mail == $emailRecup && $pass==$passRecup){
+            if ($mail == $emailRecup && $pass == $passRecup) {
                 $url = $app->urlFor('supp');
                 $s->assign('url', $url);
                 $photos = Photo::where('idannonce', '=', $id)->get();
                 foreach ($photos as $photo) {
-                    unlink ($photo->cheminfull);
+                    unlink($photo->cheminfull);
                     unlink($photo->cheminthum);
                     $photo->delete();
                 }
@@ -370,14 +418,52 @@ class ControleurAnnonce {
                 $s->display('tpl/header.tpl');
                 $s->display('tpl/suppAnnonce.tpl');
                 $s->display('tpl/footer.tpl');
-            }else{
+            } else {
                 echo 'Email ou mot de passe incorect';
             }
-        }else{
+        } else {
             echo 'bad ass dude';
         }
     }
+    
+    public function mesAnnonces($s){
+        $annonces = Annonce::where('emailannonce','=', $_POST['mail'])->orderBy('dateannonce', 'DESC')->get();
+        $tabAnnonces = array();
+        foreach ($annonces as $res) {
+            $tab = array();
+            $tab['miniature'] = null;
+            $photos = Photo::where('idannonce', '=', $res->idannonce)->get();
+            foreach ($photos as $photo) {
+                $tab['miniature'] = $photo->cheminthum;
+                break;
+            }
+            $tab['id'] = $res->idannonce;
+            $tab['titre'] = $res->titreannonce;
+            $tab['descriptif'] = $res->descriptifannonce;
+            $tab['prix'] = $res->prixannonce;
+            $tab['post'] = $res->codepostalannonce;
+            $tab['ville'] = $res->villeannonce;
+            $tab['idUtil'] = $res->idutil;
+            $tab['idCateg'] = $res->idcateg;
+            $tabAnnonces[] = $tab;
+        }
+        $s->assign('annonces', $tabAnnonces);
+        $s->display('tpl/header.tpl');
+        $categories = array();
+        foreach (Categorie::all() as $res) {
+            $t = array();
+            $t['idCateg'] = $res->idcateg;
+            $t['titreCateg'] = $res->labelcateg;
+            $categories[] = $t;
+        }
+        $s->assign('categories', $categories);
+        $s->display('tpl/sideBar.tpl');
+        $s->display('tpl/allAnnonce.tpl');
+        $s->display('tpl/footer.tpl');
+    }
 
 }
+
+
 
 ?>

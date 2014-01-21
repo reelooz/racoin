@@ -15,5 +15,5 @@
     </head>
     <body>
         <header>
-           <h1>Racoincoin.net</h1>
+            <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
         </header>

@@ -7,3 +7,6 @@ function validation(){
 }
 
 
+function validationSupp(){
+    document.getElementById("validationSupp").style.display="inline";
+}

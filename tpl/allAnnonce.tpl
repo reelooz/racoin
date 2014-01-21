@@ -5,11 +5,18 @@
         {section name=annonces loop=$annonces}
             <a href="/ProjetRacoinNet/annonce/{$annonces[annonces].id}">
                 <div class="Annonce">
-                    <h3>Titre : {$annonces[annonces].titre}</h3>
-                    <p>Descriptif : {$annonces[annonces].descriptif}</p>
-                    <p>Prix : {$annonces[annonces].prix} euros</p>
-                    <p>Code postal : {$annonces[annonces].post}</p>
-                    <p>Ville : {$annonces[annonces].ville}</p>
+                    {if isset($annonces[annonces].miniature) }
+                        <img src="/ProjetRacoinNet/{$annonces[annonces].miniature}">
+                    {/if}
+                    <div class="text">
+                        <h3>Titre : {$annonces[annonces].titre}</h3>
+                        <p>Descriptif : {$annonces[annonces].descriptif}</p>
+                    </div>
+                    <div class="prixpos">
+                        <p>Prix : {$annonces[annonces].prix} euros</p>
+                        <p>Code postal : {$annonces[annonces].post}</p>
+                        <p>Ville : {$annonces[annonces].ville}</p>
+                    </div>
                 </div>
                 <hr>
             </a>

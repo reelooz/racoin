@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-20 17:15:54
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 10:25:26
          compiled from "tpl\OneAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:501652cc1c13aab393-40101215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '985a0efde9b0c4311aaa81661a4d1671a8cc3511' => 
     array (
       0 => 'tpl\\OneAnnonce.tpl',
-      1 => 1390238148,
+      1 => 1390299924,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_52cc1c13aad680_04185896',
   'variables' => 
   array (
-    'annonces' => 0,
+    'annonce' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -27,76 +27,84 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div id="content">
         <h1 style="border-bottom: solid black 1px;">Annonces</h1>
 
-        <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['name'] = 'annonces';
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['annonces']->value) ? count($_loop) : max(0, (int) $_loop); unset($_loop);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['show'] = true;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['loop'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['step'] = 1;
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['start'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['step'] > 0 ? 0 : $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['loop']-1;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['show']) {
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['loop'];
-    if ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total'] == 0)
-        $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['show'] = false;
-} else
-    $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total'] = 0;
-if ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['show']):
-
-            for ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['start'], $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] = 1;
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] <= $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total'];
-                 $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index'] += $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['step'], $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration']++):
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['rownum'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index_prev'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index'] - $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index_next'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['index'] + $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['step'];
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] == 1);
-$_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['total']);
-?>
-            <a href="#">
-                <div class="Annonce">
-                    <h3>Titre : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['titre'];?>
+        <h3><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre'];?>
 </h3>
-                    <p>Descriptif : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['descriptif'];?>
-</p>
-                    <p>Prix : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['prix'];?>
- euros</p>
-                    <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['post'];?>
-</p>
-                    <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['ville'];?>
-</p>
-                    <a href="#" onClick="afficher()">Contacter le vendeur<a/>
-                    <div id="contact" style="display:none;">
-                        <p>Nom : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['nomUtil'];?>
-</p>
-                        <p>Prénom : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['prenomUtil'];?>
-</p>
-                        <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['villeUtil'];?>
-</p>
-                        <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['postUtil'];?>
-</p>
-                        <p>Departement : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['deptUtil'];?>
-</p>
-                        <p>Mail : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['mailUtil'];?>
-</p>
-                        <p>Téléphone : 0<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['phoneUtil'];?>
-</p>
-                        
-                    </div>
-                </div>
-                <hr>
-                <a href="#" OnClick="validation()"> Modifier l'annonce</a>
-                   <div id="validation" style="display:none;">
-                       <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
-                       <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['id'];?>
-">
-                           Email : <input type="text" name="mail" />
-                           Mot de passe : <input type="text" name="pass"/>
-                           <input type="submit" value="Valider pour modifier"/>
-                       </form>
-                        
-                    </div>
-            </a>
+        <?php if (isset($_smarty_tpl->tpl_vars['annonce']->value['photo1'])) {?>
+            <div id="galerie">
+                <ul id="galerie_mini">
+                    <?php if (isset($_smarty_tpl->tpl_vars['annonce']->value['photo1'])) {?>
+                        <li><a href="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['photo1'];?>
+"><img src="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['miniaturephoto1'];?>
+"/></a></li>
+                    <?php }?>
+                    <?php if (isset($_smarty_tpl->tpl_vars['annonce']->value['photo2'])) {?>
+                        <li><a href="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['photo2'];?>
+"><img src="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['miniaturephoto2'];?>
+"/></a></li>
+                    <?php }?>
+                    <?php if (isset($_smarty_tpl->tpl_vars['annonce']->value['photo3'])) {?>
+                        <li><a href="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['photo3'];?>
+"><img src="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['miniaturephoto3'];?>
+"/></a></li>
+                    <?php }?>
+                </ul>
+                <dl id="photo">
+                    <dd><img id="big_pict" src="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['photo1'];?>
+" alt="Photo 1 en taille normale" /></dd>
+                </dl>
+            </div>
+        <?php }?>
 
-        <?php endfor; endif; ?>
-        
+        <div class="Annonce">
+            <p>Descriptif : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['descriptif'];?>
+</p>
+            <p>Prix : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prix'];?>
+ euros</p>
+            <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['post'];?>
+</p>
+            <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['ville'];?>
+</p>
+            <a href="#" onClick="afficher()">Contacter le vendeur<a/>
+                <div id="contact" style="display:none;">
+                    <p>Nom : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nomUtil'];?>
+</p>
+                    <p>Prénom : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prenomUtil'];?>
+</p>
+                    <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['villeUtil'];?>
+</p>
+                    <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['postUtil'];?>
+</p>
+                    <p>Departement : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['deptUtil'];?>
+</p>
+                    <p>Mail : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['mailUtil'];?>
+</p>
+                    <p>Téléphone : 0<?php echo $_smarty_tpl->tpl_vars['annonce']->value['phoneUtil'];?>
+</p>
+
+                </div>
+        </div>
+        <hr>
+        <a href="#" OnClick="validation()"> Modifier l'annonce</a>
+        <a href="#" OnClick="validationSupp()"> Supprimer l'annonce</a>
+        <div id="validationSupp" style="display:none;">
+            <p> Pour supprimer cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+            <form method="POST" action="/ProjetRacoinNet/annonces/suppAnnonce/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id'];?>
+">
+                Email : <input type="text" name="mail" />
+                Mot de passe : <input type="text" name="pass"/>
+                <input type="submit" value="Valider pour supprimer"/>
+            </form>
+
+        </div>
+        <div id="validation" style="display:none;">
+            <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+            <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/<?php echo $_smarty_tpl->tpl_vars['annonce']->value['id'];?>
+">
+                Email : <input type="text" name="mail" />
+                Mot de passe : <input type="text" name="pass"/>
+                <input type="submit" value="Valider pour modifier"/>
+            </form>
+        </div>
+
     </div>
 </section><?php }} ?>

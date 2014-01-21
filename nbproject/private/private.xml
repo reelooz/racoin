@@ -4,18 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/ProjetRacoinNet/php/racoin/Controleurs/ControleurAnnonce.php</file>
+            <file>file:/C:/wamp/www/ProjetRacoinNet/index.php</file>
+            <file>file:/C:/wamp/www/ProjetRacoinNet/php/racoin/Base/App.php</file>
             <file>file:/C:/wamp/www/ProjetRacoinNet/php/racoin/Classe/Annonce.php</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/header.tpl</file>
             <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/allAnnonce.tpl</file>
             <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/ajoutAnnonce.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/Confirmation.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/index.php</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/PreviewOneAnnonce.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/Erreur.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/accueil.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/php/racoin/Tools/tools.php</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/sidebar.tpl</file>
-            <file>file:/C:/wamp/www/ProjetRacoinNet/tpl/OneAnnonce.tpl</file>
         </group>
     </open-files>
 </project-private>

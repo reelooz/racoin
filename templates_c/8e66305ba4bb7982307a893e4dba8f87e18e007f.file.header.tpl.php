@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-20 16:02:54
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 10:12:37
          compiled from "tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:777252b06398218603-08165138%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8e66305ba4bb7982307a893e4dba8f87e18e007f' => 
     array (
       0 => 'tpl\\header.tpl',
-      1 => 1390233769,
+      1 => 1390299152,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/fonction.js"></script>
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/ckeditor/ckeditor.js"></script>
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/pieceJointe.js"></script>
+        <script type="text/javascript" src="/ProjetRacoinNet/web/js/galerie.js"></script>
     </head>
     <body>
         <header>

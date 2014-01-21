@@ -61,7 +61,6 @@ $app->get('/annonce/:id', function($id) use ($app) {
         $c->displayOneAnnonce($Smarty,$id);
     }else{
         $c->afficheCategUrl($Smarty,$id);
-        echo 'dans recherche cat';
     }    
 }
 );
@@ -86,6 +85,14 @@ $app->post('/annonces/afficheCateg', function() use ($app) {
     $c->afficheCateg($Smarty, $categ);
 }
 );
+
+
+$app->post('/annonces/suppAnnonce/:id', function($id) use ($app){
+    $Smarty = new Smarty();
+    $c = new ControleurAnnonce();
+    $c->suppAnnonce($Smarty,$app, $id);
+}
+)->name ('supp');
 
 
 

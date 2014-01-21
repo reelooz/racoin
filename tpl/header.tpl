@@ -11,6 +11,7 @@
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/fonction.js"></script>
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/ckeditor/ckeditor.js"></script>
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/pieceJointe.js"></script>
+        <script type="text/javascript" src="/ProjetRacoinNet/web/js/galerie.js"></script>
     </head>
     <body>
         <header>

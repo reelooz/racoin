@@ -36,9 +36,19 @@ class ControleurAnnonce {
         $s->display('tpl/sideBar.tpl');
 
         $annonces = array();
-        $resAnnonce = Annonce::with('categorie', 'utilisateur')->get();
+        $resAnnonce = Annonce::with('categorie', 'utilisateur')->orderBy('dateannonce', 'DESC')->get();
         foreach ($resAnnonce as $res) {
             $tab = array();
+            
+            /*             * *************Partie de traitement des photos************** */
+            $tab['miniature'] = null;
+            $photos = Photo::where('idannonce', '=', $res->idannonce)->get();
+            foreach ($photos as $photo) {
+                $tab['miniature'] = $photo->cheminthum;
+                break;
+            }
+            /*             * ********************************************************* */
+            
             $tab['id'] = $res->idannonce;
             $tab['titre'] = $res->titreannonce;
             $tab['descriptif'] = $res->descriptifannonce;
@@ -69,6 +79,22 @@ class ControleurAnnonce {
         $annonces = array();
         $tab = array();
 
+        /*         * *************Partie de traitement des photos************** */
+        $tab['photo1'] = null;
+        $tab['photo2'] = null;
+        $tab['photo3'] = null;
+        $tab['miniaturephoto1'] = null;
+        $tab['miniaturephoto2'] = null;
+        $tab['miniaturephoto3'] = null;
+
+        $i = 1;
+        $photos = Photo::where('idannonce', '=', $id)->get();
+        foreach ($photos as $photo) {
+            $tab['photo' . $i] = $photo->cheminfull;
+            $tab['miniaturephoto' . $i] = $photo->cheminthum;
+            $i++;
+        }
+        /*         * ********************************************************* */
         $res = Annonce::find($id);
         $resUtil = Utilisateur::find($res->idutil);
         $tab['id'] = $res->idannonce;
@@ -88,9 +114,7 @@ class ControleurAnnonce {
         $tab['phoneUtil'] = $resUtil->telephone;
         $tab['idCateg'] = $res->idcateg;
 
-        $annonces[] = $tab;
-
-        $s->assign('annonces', $annonces);
+        $s->assign('annonce', $tab);
         $s->display('tpl/OneAnnonce.tpl');
         $s->display('tpl/footer.tpl');
     }
@@ -245,8 +269,8 @@ class ControleurAnnonce {
                     }
                     $i++;
                 }
-            }else{
-                $res=false;
+            } else {
+                $res = false;
             }
             if ($res) {
                 $s->assign('titre', "Votre annonce a correctement été ajoutée");
@@ -275,29 +299,29 @@ class ControleurAnnonce {
         }
         $s->display('tpl/footer.tpl');
     }
-    
-    public function modAnnonce($s, $app, $id){
+
+    public function modAnnonce($s, $app, $id) {
         $t = new tools();
         if ($t->getRequestField('mail') != null && $t->getRequestField('pass') != null) {
             $mail = $_POST['mail'];
             $pass = md5($_POST['pass']);
-            $annonce=Annonce::find($id);
+            $annonce = Annonce::find($id);
             $passRecup = $annonce->motdepasseannonce;
             $emailRecup = $annonce->emailannonce;
-            if ($mail == $emailRecup && $pass==$passRecup){
+            if ($mail == $emailRecup && $pass == $passRecup) {
                 $url = $app->urlFor('modif');
                 $s->assign('url', $url);
 
-                $util=Utilisateur::find($annonce->idutil);
+                $util = Utilisateur::find($annonce->idutil);
                 $s->display('tpl/header.tpl');
                 $s->assign('annonce', $annonce);
                 $s->assign('util', $util);
                 $s->display('tpl/modifAnnonce.tpl');
                 $s->display('tpl/footer.tpl');
-            }else{
+            } else {
                 echo 'Email ou mot de passe incorect';
             }
-        }else{
+        } else {
             echo 'bad ass dude';
         }
     }
@@ -320,8 +344,32 @@ class ControleurAnnonce {
         $util->mail = $_POST['mailUtil'];
         $util->telephone = $_POST['phoneUtil'];
         $util->save();
-        
+
         $this->displayOneAnnonce($s, $_POST['id']);
+    }
+    
+    public function suppAnnonce($s, $app, $id){
+        $t = new tools();
+        if ($t->getRequestField('mail') != null && $t->getRequestField('pass') != null) {
+            $mail = $_POST['mail'];
+            $pass = md5($_POST['pass']);
+            $annonce=Annonce::find($id);
+            $passRecup = $annonce->motdepasseannonce;
+            $emailRecup = $annonce->emailannonce;
+            if ($mail == $emailRecup && $pass==$passRecup){
+                $url = $app->urlFor('supp');
+                $s->assign('url', $url);
+                $annonce = Annonce::find($id);
+                $annonce->delete();
+                $s->display('tpl/header.tpl');
+                $s->display('tpl/suppAnnonce.tpl');
+                $s->display('tpl/footer.tpl');
+            }else{
+                echo 'Email ou mot de passe incorect';
+            }
+        }else{
+            echo 'bad ass dude';
+        }
     }
 
 }

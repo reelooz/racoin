@@ -13,7 +13,7 @@
                 </select>
             </li>
             <li> 
-                Prix : <input type="text" name="selectPrix" </input>
+                Prix : <input type="number" name="selectPrix" min="" </input>
             </li>
             <li>
                 <input type="submit" name="Rechercher" value="Rechercher"/>

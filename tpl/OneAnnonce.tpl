@@ -25,28 +25,27 @@
         <div class="Annonce">
             <p>Descriptif : {$annonce.descriptif}</p>
             <p>Prix : {$annonce.prix} euros</p>
-            <p>Code postal : {$annonce.post}</p>
-            <p>Ville : {$annonce.ville}</p>
-            <a href="#" onClick="afficher()">Contacter le vendeur<a/>
+            <p>Code postal : {$annonce.postUtil}</p>
+            <p>Ville : {$annonce.villeUtil}</p>
+            <a id="aaffiche" href="#" >Contacter le vendeur<a/>
                 <div id="contact" style="display:none;">
                     <p>Nom : {$annonce.nomUtil}</p>
                     <p>Prénom : {$annonce.prenomUtil}</p>
                     <p>Ville : {$annonce.villeUtil}</p>
                     <p>Code postal : {$annonce.postUtil}</p>
-                    <p>Departement : {$annonce.deptUtil}</p>
                     <p>Mail : {$annonce.mailUtil}</p>
                     <p>Téléphone : 0{$annonce.phoneUtil}</p>
 
                 </div>
         </div>
         <hr>
-        <a href="#" OnClick="validation()"> Modifier l'annonce</a>
-        <a href="#" OnClick="validationSupp()"> Supprimer l'annonce</a>
+        <a href="#" id="amodif"  > Modifier l'annonce</a>
+        <a href="#" id="asuppr" > Supprimer l'annonce</a>
         <div id="validationSupp" style="display:none;">
             <p> Pour supprimer cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
             <form method="POST" action="/ProjetRacoinNet/annonces/suppAnnonce/{$annonce.id}">
-                Email : <input type="text" name="mail" />
-                Mot de passe : <input type="text" name="pass"/>
+                Email : <input type="email" name="mail" />
+                Mot de passe : <input type="password" name="pass"/>
                 <input type="submit" value="Valider pour supprimer"/>
             </form>
 
@@ -54,8 +53,8 @@
         <div id="validation" style="display:none;">
             <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
             <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/{$annonce.id}">
-                Email : <input type="text" name="mail" />
-                Mot de passe : <input type="text" name="pass"/>
+                Email : <input type="email" name="mail" />
+                Mot de passe : <input type="password" name="pass"/>
                 <input type="submit" value="Valider pour modifier"/>
             </form>
         </div>

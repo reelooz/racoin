@@ -269,7 +269,7 @@ class ControleurAnnonce {
                 $user->prenom = $_POST['PrenomPosteurAnnonce'];
                 $user->ville = $_POST['villeAnnonce'];
                 $user->codepost = $_POST['codePostAnnonce'];
-                $user->departement = 'osef';
+                $user->departement = '';
                 $user->mail = $_POST['MailPosteurAnnonce'];
                 $user->motdepasse = md5($_POST['PassAnnonce']);
                 $user->telephone = $_POST['TelPosteurAnnonce'];
@@ -349,6 +349,7 @@ class ControleurAnnonce {
     }
 
     public function modAnnonce($s, $app, $id) {
+       
         $t = new tools();
         if ($t->getRequestField('mail') != null && $t->getRequestField('pass') != null) {
             $mail = $_POST['mail'];
@@ -379,6 +380,9 @@ class ControleurAnnonce {
         $annonce->titreannonce = $_POST['titre'];
         $annonce->descriptifannonce = $_POST['descrAnnonce'];
         $annonce->prixannonce = $_POST['prix'];
+        $annonce->villeannonce = $_POST['ville'];
+        $annonce->codepostalannonce = $_POST['codePost'];
+        $annonce->emailannonce = $_POST['mailUtil'];
         $annonce->idutil = $_POST['idUtil'];
         $annonce->idcateg = $_POST['idCat'];
         $annonce->save();
@@ -388,7 +392,7 @@ class ControleurAnnonce {
         $util->prenom = $_POST['prenomUtil'];
         $util->ville = $_POST['villeUtil'];
         $util->codepost = $_POST['postUtil'];
-        $util->departement = $_POST['deptUtil'];
+        $util->departement = "";
         $util->mail = $_POST['mailUtil'];
         $util->telephone = $_POST['phoneUtil'];
         $util->save();

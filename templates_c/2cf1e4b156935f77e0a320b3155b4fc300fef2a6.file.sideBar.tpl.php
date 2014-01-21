@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 15:57:41
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 16:31:54
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1390319857,
+      1 => 1390321816,
       2 => 'file',
     ),
   ),
@@ -63,7 +63,7 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
                 </select>
             </li>
             <li> 
-                Prix : <input type="text" name="selectPrix" </input>
+                Prix : <input type="number" name="selectPrix" min="" </input>
             </li>
             <li>
                 <input type="submit" name="Rechercher" value="Rechercher"/>

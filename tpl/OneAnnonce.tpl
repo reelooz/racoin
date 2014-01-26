@@ -1,8 +1,8 @@
 <section>
     <div id="content">
-        <h1 style="border-bottom: solid black 1px;">Annonces</h1>
+       
 
-        <h3>{$annonce.titre}</h3>
+        <h1>{$annonce.titre}</h1>
         {if isset($annonce.photo1) }
             <div id="galerie">
                 <ul id="galerie_mini">
@@ -22,12 +22,12 @@
             </div>
         {/if}
 
-        <div class="Annonce">
-            <p>Descriptif : {$annonce.descriptif}</p>
+        <div >
+            <p id="objet"> {$annonce.descriptif}</p>
             <p>Prix : {$annonce.prix} euros</p>
             <p>Code postal : {$annonce.postUtil}</p>
             <p>Ville : {$annonce.villeUtil}</p>
-            <a id="aaffiche" href="#" >Contacter le vendeur<a/>
+            <a id="aaffiche" href="#" > [+] Contacter le vendeur<a/>
                 <div id="contact" style="display:none;">
                     <p>Nom : {$annonce.nomUtil}</p>
                     <p>Prénom : {$annonce.prenomUtil}</p>

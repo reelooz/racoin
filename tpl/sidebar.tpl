@@ -21,11 +21,11 @@
         </ul>
     </form>
 </nav>
-<a id="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
-<a id="but" onClick="validationMesAnnonces()">Gérer mes annonces</a>
+<a class="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
+<a class="but" id="mesAnnonces" onClick="validationMesAnnonces()">Gérer mes annonces
     <div id="validationMesAnnonces" style="display:none;">
         <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
             <input type="email" name="mail" placeholder="Votre email" autofocus/>
             <input type="submit" value="Rechercher"/>
         </form>
-    </div>
+    </div></a>

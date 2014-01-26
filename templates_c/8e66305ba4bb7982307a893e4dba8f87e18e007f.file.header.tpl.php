@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 16:36:55
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 12:39:08
          compiled from "tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:777252b06398218603-08165138%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8e66305ba4bb7982307a893e4dba8f87e18e007f' => 
     array (
       0 => 'tpl\\header.tpl',
-      1 => 1390322106,
+      1 => 1390739945,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <head>
         <meta charset="utf-8" />
         <title>Racoincoin</title>
-        <link rel="stylesheet" href="/ProjetRacoinNet/web/css/screen.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/ProjetRacoinNet/web/css/stylesheets/screen.css" type="text/css" media="screen" />
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
         <script src="/ProjetRacoinNet/web/js/jquery.js"></script>

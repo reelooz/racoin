@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 16:42:24
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 13:29:44
          compiled from "tpl\OneAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:501652cc1c13aab393-40101215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '985a0efde9b0c4311aaa81661a4d1671a8cc3511' => 
     array (
       0 => 'tpl\\OneAnnonce.tpl',
-      1 => 1390322522,
+      1 => 1390742982,
       2 => 'file',
     ),
   ),
@@ -25,10 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52cc1c13aad680_04185896')) {function content_52cc1c13aad680_04185896($_smarty_tpl) {?><section>
     <div id="content">
-        <h1 style="border-bottom: solid black 1px;">Annonces</h1>
+       
 
-        <h3><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre'];?>
-</h3>
+        <h1><?php echo $_smarty_tpl->tpl_vars['annonce']->value['titre'];?>
+</h1>
         <?php if (isset($_smarty_tpl->tpl_vars['annonce']->value['photo1'])) {?>
             <div id="galerie">
                 <ul id="galerie_mini">
@@ -55,8 +55,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </div>
         <?php }?>
 
-        <div class="Annonce">
-            <p>Descriptif : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['descriptif'];?>
+        <div >
+            <p id="objet"> <?php echo $_smarty_tpl->tpl_vars['annonce']->value['descriptif'];?>
 </p>
             <p>Prix : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['prix'];?>
  euros</p>
@@ -64,7 +64,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </p>
             <p>Ville : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['villeUtil'];?>
 </p>
-            <a id="aaffiche" href="#" >Contacter le vendeur<a/>
+            <a id="aaffiche" href="#" > [+] Contacter le vendeur<a/>
                 <div id="contact" style="display:none;">
                     <p>Nom : <?php echo $_smarty_tpl->tpl_vars['annonce']->value['nomUtil'];?>
 </p>

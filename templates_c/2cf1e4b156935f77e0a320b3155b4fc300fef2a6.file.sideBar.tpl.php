@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 16:31:54
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 13:41:31
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1390321816,
+      1 => 1390743689,
       2 => 'file',
     ),
   ),
@@ -71,12 +71,12 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
         </ul>
     </form>
 </nav>
-<a id="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
-<a id="but" onClick="validationMesAnnonces()">Gérer mes annonces</a>
+<a class="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
+<a class="but" id="mesAnnonces" onClick="validationMesAnnonces()">Gérer mes annonces
     <div id="validationMesAnnonces" style="display:none;">
         <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
             <input type="email" name="mail" placeholder="Votre email" autofocus/>
             <input type="submit" value="Rechercher"/>
         </form>
-    </div>
+    </div></a>
 <?php }} ?>

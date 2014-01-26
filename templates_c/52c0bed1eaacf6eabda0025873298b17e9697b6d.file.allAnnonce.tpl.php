@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-21 15:55:05
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 13:44:17
          compiled from "tpl\allAnnonce.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3169552b17b7eb59989-33488169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52c0bed1eaacf6eabda0025873298b17e9697b6d' => 
     array (
       0 => 'tpl\\allAnnonce.tpl',
-      1 => 1390319690,
+      1 => 1390743855,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_52b17b7ed5dd18_63023251')) {function content_52b17b7ed5dd18_63023251($_smarty_tpl) {?><section>
-    <div id="content">
+    <div id="annonce">
         <h1 style="border-bottom: solid black 1px;">Annonces</h1>
 
         <?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']);
@@ -54,17 +54,16 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = (
             <a href="/ProjetRacoinNet/annonce/<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['id'];?>
 ">
                 <div class="Annonce">
+                    <h3><?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['titre'];?>
+</h3>
                     <?php if (isset($_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty',null,true,false)->value['section']['annonces']['index']]['miniature'])) {?>
                         <img src="/ProjetRacoinNet/<?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['miniature'];?>
 ">
                     <?php }?>
-                    <div class="text">
-                        <h3>Titre : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['titre'];?>
-</h3>
-                        <p>Descriptif : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['descriptif'];?>
-</p>
-                    </div>
-                    <div class="prixpos">
+                    <div class="desc">
+                        
+                        <p class="objet"> <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['descriptif'];?>
+</p>                    
                         <p>Prix : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['prix'];?>
  euros</p>
                         <p>Code postal : <?php echo $_smarty_tpl->tpl_vars['annonces']->value[$_smarty_tpl->getVariable('smarty')->value['section']['annonces']['index']]['post'];?>
@@ -73,9 +72,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['annonces']['last']       = (
 </p>
                     </div>
                 </div>
-                <hr>
+                
             </a>
-
+<hr>
         <?php endfor; endif; ?>
         <?php if (!isset($_smarty_tpl->tpl_vars['annonces']->value[0])) {?>
             <p>Pas d'annonce</p>

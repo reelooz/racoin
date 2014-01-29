@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 12:39:08
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-28 17:07:30
          compiled from "tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:777252b06398218603-08165138%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8e66305ba4bb7982307a893e4dba8f87e18e007f' => 
     array (
       0 => 'tpl\\header.tpl',
-      1 => 1390739945,
+      1 => 1390927223,
       2 => 'file',
     ),
   ),
@@ -34,6 +34,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/galerie.js"></script>
     </head>
     <body>
-        <header>
-            <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
-        </header><?php }} ?>
+        <?php if (!isset($_SESSION['id'])) {?>
+            <a href="/ProjetRacoinNet/connexion"> Connexion</a>
+            <a href="/ProjetRacoinNet/pro/creationCompte"> Creer un compte PRO</a>
+        <?php } else { ?>
+            <?php ob_start();?><?php echo $_SESSION['pro'];?>
+<?php $_tmp1=ob_get_clean();?><?php if ($_tmp1==1) {?>
+                    <p> Coucou Pro <?php echo $_SESSION['prenom'];?>
+ <?php echo $_SESSION['nom'];?>
+</p>
+                <?php } else {?><?php ob_start();?><?php echo $_SESSION['admin'];?>
+<?php $_tmp2=ob_get_clean();?><?php if ($_tmp2==1) {?>
+                    <p> Coucou Admin <?php echo $_SESSION['prenom'];?>
+ <?php echo $_SESSION['nom'];?>
+</p>
+                    <a href="/ProjetRacoinNet/admin/gestion"> Gestion administrateur</a><br><br>
+                <?php } else { ?>
+
+                    <p> Coucou <?php echo $_SESSION['prenom'];?>
+ <?php echo $_SESSION['nom'];?>
+</p>
+                <?php }}?>
+                <a href="/ProjetRacoinNet/deconnexion">Deconnexion</a>
+            <?php }?>
+
+            <header>
+                <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
+            </header>
+<?php }} ?>

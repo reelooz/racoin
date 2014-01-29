@@ -181,6 +181,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mail` varchar(40) NOT NULL,
   `motdepasse` varchar(40) NOT NULL,
   `telephone` int(10) DEFAULT NULL,
+  `admin` int(1) NOT NULL DEFAULT 0,
+  `pro`int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`idutil`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
 

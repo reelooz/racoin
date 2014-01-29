@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-26 13:41:31
+<?php /* Smarty version Smarty-3.1-DEV, created on 2014-01-29 09:58:11
          compiled from "tpl\sideBar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:957352b06398458b51-60804779%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cf1e4b156935f77e0a320b3155b4fc300fef2a6' => 
     array (
       0 => 'tpl\\sideBar.tpl',
-      1 => 1390743689,
+      1 => 1390989487,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_52b0639845f691_16328267')) {function content_52b0639845f691_16328267($_smarty_tpl) {?><nav>
+<?php if ($_valid && !is_callable('content_52b0639845f691_16328267')) {function content_52b0639845f691_16328267($_smarty_tpl) {?>
+<nav>
     <form method="POST" action="/ProjetRacoinNet/annonces/afficheCateg">
         <ul>
             <li>
@@ -71,12 +72,37 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['categ']['last']       = ($_s
         </ul>
     </form>
 </nav>
-<a class="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
-<a class="but" id="mesAnnonces" onClick="validationMesAnnonces()">Gérer mes annonces
-    <div id="validationMesAnnonces" style="display:none;">
-        <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
-            <input type="email" name="mail" placeholder="Votre email" autofocus/>
-            <input type="submit" value="Rechercher"/>
-        </form>
-    </div></a>
+<?php if (isset($_SESSION['id'])) {?>
+    <?php if (($_SESSION['pro']==1)) {?>
+        <a class="but" href="/ProjetRacoinNet/pro/addAnnonce">Ajouter annonce PRO</a>
+    <?php } else { ?>
+        <a class="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
+    <?php }?>
+<?php } else { ?>
+    <a class="but" href="/ProjetRacoinNet/annonces/addAnnonce">Ajouter annonce</a>
+<?php }?>
+
+
+<?php if (isset($_SESSION['id'])) {?>
+    <?php if (($_SESSION['pro']==1)) {?>
+        <a class="but" href="/ProjetRacoinNet/pro/afficherProfilPro">Mon profil</a>
+    <?php } else { ?>
+        <a class="but" id="mesAnnonces" onClick="validationMesAnnonces()">Gérer mes annonces
+            <div id="validationMesAnnonces" style="display:none;">
+                <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
+                    <input type="email" name="mail" placeholder="Votre email" autofocus/>
+                    <input type="submit" value="Rechercher"/>
+                </form>
+            </div>
+        <?php }?>
+    <?php } else { ?>
+        <a class="but" id="mesAnnonces" onClick="validationMesAnnonces()">Gérer mes annonces
+            <div id="validationMesAnnonces" style="display:none;">
+                <form method="POST" action="/ProjetRacoinNet/annonces/mesAnnonces">
+                    <input type="email" name="mail" placeholder="Votre email" autofocus/>
+                    <input type="submit" value="Rechercher"/>
+                </form>
+            <?php }?>
+
+        </div></a>
 <?php }} ?>

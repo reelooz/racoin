@@ -1,20 +1,18 @@
 <section>
     <div id="content">
-       
-
         <h1>{$annonce.titre}</h1>
         {if isset($annonce.photo1) }
             <div id="galerie">
                 <ul id="galerie_mini">
                     {if isset($annonce.photo1) }
                         <li><a href="/ProjetRacoinNet/{$annonce.photo1}"><img src="/ProjetRacoinNet/{$annonce.miniaturephoto1}"/></a></li>
-                    {/if}
-                    {if isset($annonce.photo2) }
+                            {/if}
+                            {if isset($annonce.photo2) }
                         <li><a href="/ProjetRacoinNet/{$annonce.photo2}"><img src="/ProjetRacoinNet/{$annonce.miniaturephoto2}"/></a></li>
-                    {/if}
-                    {if isset($annonce.photo3) }
+                            {/if}
+                            {if isset($annonce.photo3) }
                         <li><a href="/ProjetRacoinNet/{$annonce.photo3}"><img src="/ProjetRacoinNet/{$annonce.miniaturephoto3}"/></a></li>
-                    {/if}
+                            {/if}
                 </ul>
                 <dl id="photo">
                     <dd><img id="big_pict" src="/ProjetRacoinNet/{$annonce.photo1}" alt="Photo 1 en taille normale" /></dd>
@@ -40,16 +38,33 @@
         </div>
         <hr>
         <a href="#" id="amodif"  > Modifier l'annonce</a>
-        <a href="#" id="asuppr" > Supprimer l'annonce</a>
-        <div id="validationSupp" style="display:none;">
-            <p> Pour supprimer cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
-            <form method="POST" action="/ProjetRacoinNet/annonces/suppAnnonce/{$annonce.id}">
-                Email : <input type="email" name="mail" />
-                Mot de passe : <input type="password" name="pass"/>
-                <input type="submit" value="Valider pour supprimer"/>
-            </form>
+        {if isset($smarty.session.id) }
+            {if {$smarty.session.admin} eq 1}
+                <a href="/ProjetRacoinNet/annonces/suppAnnonce/{$annonce.id}" OnClick="return confirm ('Voulez-vous vraiment supprimer cette annonce  ?')" > Supprimer l'annonce</a> 
+            {else}
+                <a href="#" id="asuppr" > Supprimer l'annonce</a>
+                <div id="validationSupp" style="display:none;">
+                    <p> Pour supprimer cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+                    <form method="POST" action="/ProjetRacoinNet/annonces/suppAnnonce/{$annonce.id}">
+                        Email : <input type="email" name="mail" />
+                        Mot de passe : <input type="password" name="pass"/>
+                        <input type="submit" value="Valider pour supprimer"/>
+                    </form>
+                </div>
+            {/if}
+        {else}
+            <a href="#" id="asuppr" > Supprimer l'annonce</a>
+            <div id="validationSupp" style="display:none;">
+                <p> Pour supprimer cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
+                <form method="POST" action="/ProjetRacoinNet/annonces/suppAnnonce/{$annonce.id}">
+                    Email : <input type="email" name="mail" />
+                    Mot de passe : <input type="password" name="pass"/>
+                    <input type="submit" value="Valider pour supprimer"/>
+                </form>
+            </div>
 
-        </div>
+
+        {/if}
         <div id="validation" style="display:none;">
             <p> Pour modifier cette annonce, merci de rentrer l'email et le mot de passe associés à cette annonce</p>
             <form method="POST" action="/ProjetRacoinNet/annonces/modifAnnonce/{$annonce.id}">

@@ -13,6 +13,22 @@
         <script type="text/javascript" src="/ProjetRacoinNet/web/js/galerie.js"></script>
     </head>
     <body>
-        <header>
-            <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
-        </header>
+        {if !isset($smarty.session.id) }
+            <a href="/ProjetRacoinNet/connexion"> Connexion</a>
+            <a href="/ProjetRacoinNet/pro/creationCompte"> Creer un compte PRO</a>
+        {else}
+            {if {$smarty.session.pro} eq 1}
+                    <p> Coucou Pro {$smarty.session.prenom} {$smarty.session.nom}</p>
+                {elseif {$smarty.session.admin} eq 1}
+                    <p> Coucou Admin {$smarty.session.prenom} {$smarty.session.nom}</p>
+                    <a href="/ProjetRacoinNet/admin/gestion"> Gestion administrateur</a><br><br>
+                {else}
+
+                    <p> Coucou {$smarty.session.prenom} {$smarty.session.nom}</p>
+                {/if}
+                <a href="/ProjetRacoinNet/deconnexion">Deconnexion</a>
+            {/if}
+
+            <header>
+                <a href="/ProjetRacoinNet/" ><h1>Racoincoin.net</h1></a>
+            </header>
